@@ -69,6 +69,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
+        print_r($page);
         return view('page/show', compact('page'));
     }
 

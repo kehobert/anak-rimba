@@ -10,13 +10,21 @@ Route::get('course', function(){
 });*/
 
 Route::get('course', 'FrontendController@course');
-Route::get('registration', 'FrontendController@registration');
+Route::get('/course_details/{course_id}', 'FrontendController@course_details');
+Route::get('/registration/{registration_id}', 'FrontendController@registration');
+Route::post('/register_entry/{course_id}', 'FrontendController@register_entry');
+Route::get('/checkout/{registration_id}', 'FrontendController@checkout');
+Route::get('/payment_confirmation', 'FrontendController@payment_confirmation');
+Route::post('/confirm_payment', 'FrontendController@submit_payment_confirmation');
+
 
 Route::get('page/add', 'PageController@create');
 Route::get('page/{page}/delete', [
     'as'   => 'page.delete',
     'uses' => 'PageController@destroy',
 ]);
+
+
 
 /* basic routing
 Route::get('hello', function(){

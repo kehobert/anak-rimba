@@ -1,7 +1,12 @@
 <!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+        Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+    -->
 <html>
 <head>
-    <title>Anak Rimba - Checkout</title>
+    <title>Anak Rimba - Classes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
@@ -13,7 +18,7 @@
     <nav class="left">
         <a href="#menu"><span>Menu</span></a>
     </nav>
-    <a href="index.html" class="logo"><img src="assets/img/LogoAnakRimba.png" alt="Logo Anak Rimba"></a>
+    <a href="index.html" class="logo"><img src="assets/img/LogoAnakRimba.png" alt="Anak Rimba"></a>
     <nav class="right">
         <a href="#" class="button alt">Register Class</a>
     </nav>
@@ -33,57 +38,52 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
+
     <div class="inner">
 
         <header class="align-center">
-            <h1 style="">Thank You</h1>
-            <p>Please check your email at <b>{{$oDB[0]->registration_email}}</b> to get your invoice</p>
+            <h1>Register Course</h1>
+            <h3>{{$course_name}}</h3>
         </header>
         <hr class="major" />
 
-
-        <div class="row">
-            <div class="6u 12u$(small)">
-                <h3>Invoice Number</h3>
-                <p>#{{$oDB[0]->registration_id}}</p>
-                <h3>Course Name</h3>
-                <p>{{$oDB[0]->course_name}}</p>
-                <h3>Date</h3>
-                <p>{{$oDB[0]->course_date_start}} - {{$oDB[0]->course_date_end}}</p>
-                <h3>Amount to Pay</h3>
-                <p>Rp {{ number_format($oDB[0]->course_price)}}</p>
-                <hr class="major" />
-                <h3>How to Pay?</h3>
-                <div style="border:solid 1px darkgray; padding:13px;">
-                    <p>1. Pay the exact amount from the invoice above<br>
-                        2. After the payment has been done, go to <a href="#">Menu > Payment Confirmation</a> to verify your payment<br>
-                        3. Our team will send an email regarding of your course</p>
+        <form method="post" action="{{url('register_entry/'.$course_id)}}" name="submission">
+            <div class="row uniform">
+                <div class="6u 12u$(xsmall)">
+                    <input type="text" name="name" id="name" value="" placeholder="Name" /><br />
+                    <input type="text" name="phone" id="phone" value="" placeholder="Phonenumber" />
                 </div>
-
-            </div>
-            <div class="6u 12u$(small)">
-
-                <h3>To Pay for your course, please pay through this account listed below</h3>
-
-                <div class="flex-item box">
-                    <div class="image fit">
-                        <img src="images/bca.jpg" alt="" />
-                    </div>
-                    <div class="content">
-                        <h3>Bank Central Asia</h3>
-                        <p>Rek: <b>5220 3100 29 (PT. Anak Rimba)</b></p>
+                <div class="6u$ 12u$(xsmall)">
+                    <input type="email" name="email" id="email" value="" placeholder="Email" /><br />
+                    <div class="select-wrapper">
+                        <select name="category" id="category">
+                            <option value="">- Amount of Students -</option>
+                            <option value="1">0-5</option>
+                            <option value="1">6-10</option>
+                            <option value="1">11-20</option>
+                            <option value="1">> 21</option>
+                        </select>
                     </div>
                 </div>
-
+                <div class="12u$">
+                    <hr class="major" />
+                    <textarea name="message" id="message" placeholder="Enter your message or questions" rows="5"></textarea>
+                </div>
+                <div class="12u align-center">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="submit" value="Enroll now" class="button big">
+                </div>
             </div>
+
+        </form>
+
         </div>
-
-
 
     </div>
 
-
 </section>
+
+
 
 <!-- Footer -->
 <footer id="footer">
@@ -101,11 +101,13 @@
 </footer>
 
 <!-- Scripts -->
+
 <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.scrolly.min.js') }}"></script>
 <script src="{{ URL::asset('js/skel.min.js') }}"></script>
 <script src="{{ URL::asset('js/util.js') }}"></script>
 <script src="{{ URL::asset('js/main.js') }}"></script>
+
 
 </body>
 </html>
