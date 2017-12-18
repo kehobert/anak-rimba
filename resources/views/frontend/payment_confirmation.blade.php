@@ -1,108 +1,46 @@
-<!DOCTYPE HTML>
-<!--
-	Intensify by TEMPLATED
-	templated.co @templatedco
-        Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-    -->
-<html>
-<head>
-    <title>Anak Rimba - Register</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ URL::asset('public/css/main.css') }}" />
-</head>
-<body class="subpage">
+@extends('main')
+@section('content')
 
-<!-- Header -->
-<header id="header">
-    <nav class="left">
-        <a href="#menu"><span>Menu</span></a>
-    </nav>
-    <a href="index.html" class="logo"><img src="assets/img/LogoAnakRimba.png" alt="Logo Anak Rimba"></a>
-    <nav class="right">
-        <a href="#" class="button alt">Register Class</a>
-    </nav>
-</header>
+<div class="inner">
 
-<!-- Menu -->
-<nav id="menu">
-    <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generic</a></li>
-        <li><a href="elements.html">Elements</a></li>
-    </ul>
-    <ul class="actions vertical">
-        <li><a href="#" class="button fit">Login</a></li>
-    </ul>
-</nav>
+    <header class="align-center">
+        <h1>Payment Confirmation</h1>
+        <p>After you pay for the course, please put your payment information so our team can check it</p>
+    </header>
+    <hr class="major" />
+    <form method="post" action="{{url('confirm_payment')}}" name="payment_confirmation_form">
 
-<!-- Main -->
-<section id="main" class="wrapper">
-    <div class="inner">
+        <h3>Invoice Number</h3>
+        <input type="text" name="invoice_number" placeholder="e.g: #40"><br>
+        <h3>Bank Name</h3>
+        <input type="text" name="bank_name" placeholder="e.g: BCA, Mandiri"><br>
 
-        <header class="align-center">
-            <h1>Payment Confirmation</h1>
-            <p>After you pay for the course, please put your payment information so our team can check it</p>
-        </header>
+        <h3>Bank Account Number</h3>
+        <input type="text" name="bank_account_number" placeholder="e.g: 1234 5678 99"><br>
+
         <hr class="major" />
-        <form method="post" action="{{url('confirm_payment')}}" name="payment_confirmation_form">
 
-            <h3>Invoice Number</h3>
-            <input type="text" name="invoice_number" placeholder="e.g: #40"><br>
-            <h3>Bank Name</h3>
-            <input type="text" name="bank_name" placeholder="e.g: BCA, Mandiri"><br>
+        <h3>Transfer Amount (IDR)</h3>
+        <input type="text" name="transfer_amount" placeholder="e.g: 2000000"><br>
 
-            <h3>Bank Account Number</h3>
-            <input type="text" name="bank_account_number" placeholder="e.g: 1234 5678 99"><br>
+        <h3>Bank Destination</h3>
 
-            <hr class="major" />
+        <div class="row">
 
-            <h3>Transfer Amount (IDR)</h3>
-            <input type="text" name="transfer_amount" placeholder="e.g: 2000000"><br>
-
-            <h3>Bank Destination</h3>
-
-            <div class="row">
-
-                <div class="4u 12u$(small)">
-                    <input type="radio" id="bca" name="chosen_bank" value="mandiri" checked>
-                    <label for="bca">Bank Central Asia (BCA)</label></div>
-                <div class="4u 12u$(small)">
-                    <input type="radio" id="mandiri" name="chosen_bank" value="bca">
-                    <label for="mandiri">Bank Mandiri</label>
-                </div>
-
+            <div class="4u 12u$(small)">
+                <input type="radio" id="bca" name="chosen_bank" value="mandiri" checked>
+                <label for="bca">Bank Central Asia (BCA)</label></div>
+            <div class="4u 12u$(small)">
+                <input type="radio" id="mandiri" name="chosen_bank" value="bca">
+                <label for="mandiri">Bank Mandiri</label>
             </div>
-            <br/><br/>
 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="submit" value="Confirm Payment" class="button">
-        </form>
+        </div>
+        <br/><br/>
 
-    </div>
-</section>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="submit" value="Confirm Payment" class="button">
+    </form>
 
-<!-- Footer -->
-<footer id="footer">
-    <div class="inner">
-        <h2>Get In Touch</h2>
-        <ul class="actions">
-            <li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-            <li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-            <li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-        </ul>
-    </div>
-    <div class="copyright">
-        &copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-    </div>
-</footer>
-
-<!-- Scripts -->
-<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
-<script src="{{ URL::asset('js/jquery.scrolly.min.js') }}"></script>
-<script src="{{ URL::asset('js/skel.min.js') }}"></script>
-<script src="{{ URL::asset('js/util.js') }}"></script>
-<script src="{{ URL::asset('js/main.js') }}"></script>
-
-</body>
-</html>
+</div>
+@stop
