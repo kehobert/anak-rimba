@@ -9,7 +9,7 @@
     <title>Anak Rimba - Register</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="{{ URL::asset('public/css/main.css') }}" />
 </head>
 <body class="subpage">
 
@@ -41,54 +41,45 @@
     <div class="inner">
 
         <header class="align-center">
-            <h1 style="">Thank You</h1>
-            <p>Please check your email at <b>kevinhobert29@gmail.com</b> to get your invoice</p>
+            <h1>Payment Confirmation</h1>
+            <p>After you pay for the course, please put your payment information so our team can check it</p>
         </header>
         <hr class="major" />
+        <form method="post" action="{{url('confirm_payment')}}" name="payment_confirmation_form">
 
+            <h3>Invoice Number</h3>
+            <input type="text" name="invoice_number" placeholder="e.g: #40"><br>
+            <h3>Bank Name</h3>
+            <input type="text" name="bank_name" placeholder="e.g: BCA, Mandiri"><br>
 
-        <div class="row">
-            <div class="6u 12u$(small)">
+            <h3>Bank Account Number</h3>
+            <input type="text" name="bank_account_number" placeholder="e.g: 1234 5678 99"><br>
 
-                <h3>Invoice Number</h3>
-                <p>#21907</p>
-                <h3>Course Name</h3>
-                <p>Advance Android Training and Development</p>
-                <h3>Date</h3>
-                <p>11/01/2018 - 14/01/2018</p>
-                <h3>Amount to Pay</h3>
-                <p>Rp 3.000.000 (2 Persons)</p>
-                <hr class="major" />
-                <h3>How to Pay?</h3>
-                <div style="border:solid 1px darkgray; padding:13px;">
-                    <p>1. Pay the exact amount from the invoice above<br>
-                        2. After the payment has been done, go to <a href="#">Menu > Payment Confirmation</a> to verify your payment<br>
-                        3. Our team will send an email regarding of your course</p>
+            <hr class="major" />
+
+            <h3>Transfer Amount (IDR)</h3>
+            <input type="text" name="transfer_amount" placeholder="e.g: 2000000"><br>
+
+            <h3>Bank Destination</h3>
+
+            <div class="row">
+
+                <div class="4u 12u$(small)">
+                    <input type="radio" id="bca" name="chosen_bank" value="mandiri" checked>
+                    <label for="bca">Bank Central Asia (BCA)</label></div>
+                <div class="4u 12u$(small)">
+                    <input type="radio" id="mandiri" name="chosen_bank" value="bca">
+                    <label for="mandiri">Bank Mandiri</label>
                 </div>
 
             </div>
-            <div class="6u 12u$(small)">
+            <br/><br/>
 
-                <h3>To Pay for your course, please pay through this account listed below</h3>
-
-                <div class="flex-item box">
-                    <div class="image fit">
-                        <img src="images/bca.jpg" alt="" />
-                    </div>
-                    <div class="content">
-                        <h3>Bank Central Asia</h3>
-                        <p>Rek: <b>5220 3100 29 (PT. Anak Rimba)</b></p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="submit" value="Confirm Payment" class="button">
+        </form>
 
     </div>
-
-
 </section>
 
 <!-- Footer -->

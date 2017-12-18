@@ -25,7 +25,7 @@ class FrontendController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     public function index()
@@ -104,12 +104,28 @@ class FrontendController extends Controller
     }
 
     public function payment_confirmation(){
-        return "a";
+        return view('frontend.payment_confirmation');
     }
 
-    public function confirm_payment(){
+    public function submit_payment_confirmation(){
+        $input = Input::only('invoice_number','bank_name','bank_account_number', 'transfer_amount', 'chosen_bank');
 
+        $id = DB::table('payment_confirmation')->insertGetId(
+            array('payment_confirmation_bank_name' => $input['bank_name'],
+                'payment_confirmation_bank_account_number' => $input['bank_account_number'],
+                'payment_confirmation_transfer_amount' => $input['transfer_amount'],
+                'payment_confirmation_bank_destination' => $input['chosen_bank'],
+                //'payment_confirmation_additional_message' => $input['additional_message'],
+                'registration_id' => $input['invoice_number']
+            ));
+
+        return redirect()->action('FrontendController@redirect_payment_confirmation');
     }
+
+    public function redirect_payment_confirmation(){
+        return view('frontend.payment_confirmation_thank_you');
+    }
+
 
     /*
     public function rules(){
