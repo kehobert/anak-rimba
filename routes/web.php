@@ -23,7 +23,7 @@ Route::post('/confirm_payment', 'FrontendController@submit_payment_confirmation'
 Route::get('/thank_you', 'FrontendController@redirect_payment_confirmation');
 
 /* Additional Pages */
-Route::get('/about_us', 'FrontendController@abous_us');
+Route::get('/about_us', 'FrontendController@about_us');
 
 
 

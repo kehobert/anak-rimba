@@ -10,27 +10,33 @@
 
     <hr class="major" />
 
+    @if (count( $errors ) > 0 )
+
+        <div class="alert alert-danger" style="margin-bottom:20px; background: darkred; color:white; padding:10px;">
+
+        @foreach ($errors->all() as $error)
+            <i class="fa fa-warning"></i>&nbsp{{ $error }}
+            <br>
+        @endforeach
+
+        </div>
+    @endif
+
+
+
     <form method="post" action="{{url('register_entry/'.$course_id)}}" name="submission">
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
-                <input type="text" name="name" id="name" value="" placeholder="Name" /><br />
-                <input type="text" name="phone" id="phone" value="" placeholder="Phonenumber" />
+                <input type="text" name="name" id="name" value="{{Input::old('name')}}" placeholder="Name" /><br />
+                <input type="text" name="phone" id="phone" value="{{Input::old('phone')}}" placeholder="Phonenumber" />
             </div>
             <div class="6u$ 12u$(xsmall)">
-                <input type="email" name="email" id="email" value="" placeholder="Email" /><br />
-                <div class="select-wrapper">
-                    <select name="category" id="category">
-                        <option value="">- Amount of Students -</option>
-                        <option value="1">0-5</option>
-                        <option value="1">6-10</option>
-                        <option value="1">11-20</option>
-                        <option value="1">> 21</option>
-                    </select>
-                </div>
+                <input type="email" name="email" id="email" value="{{Input::old('email')}}" placeholder="Email" /><br />
+                <input type="text" name="address" id="address" value="{{Input::old('address')}}" placeholder="Address" /><br />
             </div>
             <div class="12u$">
                 <hr class="major" />
-                <textarea name="message" id="message" placeholder="Enter your message or questions" rows="5"></textarea>
+                <textarea name="message" id="message" placeholder="Enter your message or questions" rows="5">{{Input::old('message')}}</textarea>
             </div>
             <div class="12u align-center">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

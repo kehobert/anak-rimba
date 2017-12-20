@@ -12,6 +12,8 @@ use App\Course;
 use App\Http\Requests\PageFormRequest;
 use App\Page;
 use App\Registration;
+use Illuminate\Support\Facades\Redirect;
+use Validator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -66,24 +68,40 @@ class FrontendController extends Controller
 
         $input = Input::only('name','email','phone', 'message');
 
-        $lastRegistrationInsertId = DB::table('registration')->insertGetId(
-            array('registration_email' => $input['email'],
-                'registration_fullname' => $input['name'],
-                'registration_phonenumber' => $input['phone'],
-                'registration_message' => $input['message'],
-                'registration_payment_confirmed' => '1',
-                'course_id' => $course_id
-            ));
+        $rules = array(
+            'name'             => 'required',
+            'email'            => 'required|email',
+            'phone'            => 'required|numeric',
+            'message'          => ''
+        );
 
-        $hashed_id = md5($lastRegistrationInsertId);
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->fails()){
+            $messages = $validator->messages();
+
+            return Redirect::to('registration/'.$course_id)->withErrors($validator)->withInput();
+
+        }else{
+            $lastRegistrationInsertId = DB::table('registration')->insertGetId(
+                array('registration_email' => $input['email'],
+                    'registration_fullname' => $input['name'],
+                    'registration_phonenumber' => $input['phone'],
+                    'registration_message' => $input['message'],
+                    'registration_payment_confirmed' => '1',
+                    'course_id' => $course_id
+                ));
+
+            $hashed_id = md5($lastRegistrationInsertId);
 
 
-        DB::table('registration')->
+            DB::table('registration')->
             where('registration_id', $lastRegistrationInsertId)->
             update(['hashed_id' => $hashed_id]);
 
 
-        return redirect()->action('FrontendController@checkout', ['insert_id' => $hashed_id]);
+            return redirect()->action('FrontendController@checkout', ['insert_id' => $hashed_id]);
+        }
 
     }
 
@@ -110,31 +128,41 @@ class FrontendController extends Controller
     public function submit_payment_confirmation(){
         $input = Input::only('invoice_number','bank_name','bank_account_number', 'transfer_amount', 'chosen_bank');
 
-        $id = DB::table('payment_confirmation')->insertGetId(
-            array('payment_confirmation_bank_name' => $input['bank_name'],
-                'payment_confirmation_bank_account_number' => $input['bank_account_number'],
-                'payment_confirmation_transfer_amount' => $input['transfer_amount'],
-                'payment_confirmation_bank_destination' => $input['chosen_bank'],
-                //'payment_confirmation_additional_message' => $input['additional_message'],
-                'registration_id' => $input['invoice_number']
-            ));
+        $rules = array(
+            'bank_name'                 => 'required',
+            'bank_account_number'       => 'required|numeric',
+            'transfer_amount'           => 'required|numeric',
+            'chosen_bank'               => '',
+            'invoice_number'            => 'required|numeric'
+        );
+        $validator = Validator::make(Input::all(), $rules);
 
-        return redirect()->action('FrontendController@redirect_payment_confirmation');
+        if($validator->fails()){
+            $messages = $validator->messages();
+
+            return Redirect::to('payment_confirmation')->withErrors($validator)->withInput();
+        }else{
+            $id = DB::table('payment_confirmation')->insertGetId(
+                array('payment_confirmation_bank_name' => $input['bank_name'],
+                    'payment_confirmation_bank_account_number' => $input['bank_account_number'],
+                    'payment_confirmation_transfer_amount' => $input['transfer_amount'],
+                    'payment_confirmation_bank_destination' => $input['chosen_bank'],
+                    //'payment_confirmation_additional_message' => $input['additional_message'],
+                    'registration_id' => $input['invoice_number']
+                ));
+
+            return redirect()->action('FrontendController@redirect_payment_confirmation');
+        }
+
     }
 
     public function redirect_payment_confirmation(){
         return view('frontend.payment_confirmation_thank_you');
     }
 
-
-    /*
-    public function rules(){
-        return [
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required',
-        ];
-    }*/
+    public function about_us(){
+        return view('frontend.about_us');
+    }
 
 
 }

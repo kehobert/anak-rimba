@@ -194,7 +194,7 @@ return [
     */
 
     'aliases' => [
-
+        'Input' => Illuminate\Support\Facades\Input::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
