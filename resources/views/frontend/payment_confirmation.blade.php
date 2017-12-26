@@ -42,10 +42,10 @@
         <div class="row">
 
             <div class="4u 12u$(small)">
-                <input type="radio" id="bca" name="chosen_bank" value="mandiri" checked>
+                <input type="radio" id="bca" name="chosen_bank" value="BCA" checked>
                 <label for="bca">Bank Central Asia (BCA)</label></div>
             <div class="4u 12u$(small)">
-                <input type="radio" id="mandiri" name="chosen_bank" value="bca">
+                <input type="radio" id="mandiri" name="chosen_bank" value="Bank Mandiri">
                 <label for="mandiri">Bank Mandiri</label>
             </div>
 

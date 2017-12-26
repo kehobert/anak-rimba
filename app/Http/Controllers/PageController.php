@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class PageController extends Controller
 {
@@ -58,7 +59,7 @@ class PageController extends Controller
 
         alert()->success('Page has been added.');
 
-        return redirect()->route('page.edit', $page->id);
+        //return redirect()->route('page.edit', $page->id);
     }
 
     /**

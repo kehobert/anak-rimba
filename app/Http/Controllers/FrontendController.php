@@ -137,16 +137,19 @@ class FrontendController extends Controller
         );
         $validator = Validator::make(Input::all(), $rules);
 
+        $DEFAULT_PAYMENT_CONFIRMATION_VALUE = 0;
+
         if($validator->fails()){
             $messages = $validator->messages();
 
-            return Redirect::to('payment_confirmation')->withErrors($validator)->withInput();
+            return Redirect::to('payment')->withErrors($validator)->withInput();
         }else{
             $id = DB::table('payment_confirmation')->insertGetId(
                 array('payment_confirmation_bank_name' => $input['bank_name'],
                     'payment_confirmation_bank_account_number' => $input['bank_account_number'],
                     'payment_confirmation_transfer_amount' => $input['transfer_amount'],
                     'payment_confirmation_bank_destination' => $input['chosen_bank'],
+                    'payment_confirmation_confirmed' => $DEFAULT_PAYMENT_CONFIRMATION_VALUE,
                     //'payment_confirmation_additional_message' => $input['additional_message'],
                     'registration_id' => $input['invoice_number']
                 ));

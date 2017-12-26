@@ -60,22 +60,60 @@
 
             <div class="row">
                 <div class="2u 4u$(small)">
-                    <img src="public/images/cimb.jpg" width="150px">
+                    <img src="public/images/roheda.png" width="150px">
                 </div>
                 <div class="2u 4u$(small)">
-                    <img src="public/images/gg.png" width="150px">
+                    <img src="public/images/ibm.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/ace.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/securexcess.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/indosat.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/XL.png" width="150px">
+                </div>
+
+                <div class="2u 4u$(small)">
+                    <img src="public/images/binus.png" width="150px">
                 </div>
                 <div class="2u 4u$(small)">
                     <img src="public/images/sgu.png" width="150px">
                 </div>
                 <div class="2u 4u$(small)">
-                    <img src="public/images/XL.png" width="150px">
+                    <img src="public/images/ipb.png" width="150px">
                 </div>
                 <div class="2u 4u$(small)">
-                    <img src="public/images/ibm.jpg" width="150px">
+                    <img src="public/images/trengginas.png" width="150px">
                 </div>
                 <div class="2u 4u$(small)">
-                    <img src="public/images/fp.png" width="150px">
+                    <img src="public/images/kementerianperikanan.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/embassy.png" width="150px">
+                </div>
+
+                <div class="2u 4u$(small)">
+                    <img src="public/images/mandiri.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/panin.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/bankdki.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/cimb.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/danamon.png" width="150px">
+                </div>
+                <div class="2u 4u$(small)">
+                    <img src="public/images/freeport.png" width="150px">
                 </div>
             </div>
 

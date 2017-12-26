@@ -24,7 +24,7 @@
             @foreach($course as $course_item)
                 <tr>
                     <td><a href="{{ url('course_details', $course_item->course_id) }}">{{$course_item->course_name}}</a></td>
-                    <td>{{$course_item->course_date_start}} - {{$course_item->course_date_start}} </td>
+                    <td>{{$course_item->course_date_start}} - {{$course_item->course_date_end}} </td>
                     <td>{{$course_item->course_location}}</td>
                     <td><a href="{{ url('registration', $course_item->course_id) }}" class="button small">Register</a></td>
                 </tr>
