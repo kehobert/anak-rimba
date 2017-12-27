@@ -52,6 +52,34 @@
         </div>
     </section>
 
+    <section id="main" class="wrapper style1 special">
+        <div class="inner">
+
+            <h2 id="content" class="align-center">What our Client said about us?</h2>
+            <hr class="major">
+
+            <div class="row">
+
+                @foreach($testimonies as $testimony)
+
+                <div class="4u 12u$(small)">
+                    <blockquote>
+                        {{$testimony->testimony_content}}
+                    </blockquote>
+                    <footer>
+                        <cite class="author">{{$testimony->testimony_name}}</cite>
+                        <cite class="company">{{$testimony->testimony_position}}, {{$testimony->testimony_company}}</cite>
+                    </footer>
+                </div>
+
+                @endforeach
+
+            </div>
+
+        </div>
+    </section>
+
+
     <section id="main" class="wrapper">
         <div class="inner">
 

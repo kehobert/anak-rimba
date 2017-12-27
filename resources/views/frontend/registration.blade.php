@@ -38,16 +38,18 @@
                 <hr class="major" />
                 <textarea name="message" id="message" placeholder="Enter your message or questions" rows="5">{{Input::old('message')}}</textarea>
             </div>
+            <div class="g-recaptcha" data-sitekey="6Ld7cT4UAAAAAGaxOqh1M4rZfX6cFxk0Y_6P0OJI"></div>
             <div class="12u align-center">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="submit" value="Enroll now" class="button big">
             </div>
-        </div>
 
+        </div>
     </form>
 
     </div>
 
 </div>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 @stop

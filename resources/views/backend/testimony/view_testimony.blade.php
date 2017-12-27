@@ -11,7 +11,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">View All Course <a href="{{url('add_course')}}" class="btn btn-danger btn-fill">Add New Course</a></h4>
+                    <h4 class="title">Testimony <a href="{{url('add_testimony')}}" class="btn btn-danger btn-fill">Add New Testimony</a></h4>
 
                 </div>
                 <div class="content">
@@ -19,28 +19,29 @@
 
                         <thead>
                             <tr>
-                                <th>Course Name</th>
-                                <th>Course Date (yyyy-mm-dd)</th>
-                                <th>Location</th>
+                                <th>Testimony Content</th>
+                                <th>Testimony Writer</th>
+                                <th>Position & Company</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
-                        @foreach($course as $course_item)
+                        @foreach($testimonies as $testimony)
                             <tr>
 
-                                <td>{{$course_item->course_name}}</td>
-                                <td>{{$course_item->course_date_start}} - {{$course_item->course_date_end}}</td>
-                                <td>{{$course_item->course_location}}</td>
+                                <td>{{$testimony->testimony_content}}</td>
+                                <td>{{$testimony->testimony_name}}</td>
+                                <td>{{$testimony->testimony_position}}, {{$testimony->testimony_company}}</td>
                                 <td>
-                                    <a href="{{ url('edit_course', $course_item->course_id) }}" class="btn btn-primary btn-fill">Edit</a>
-                                    <a href="{{ url('delete_course', $course_item->course_id) }}"
+                                    <a href="{{ url('edit_testimony', $testimony->testimony_id) }}" class="btn btn-primary btn-fill">Edit</a>
+                                    <a href="{{ url('delete_testimony', $testimony->testimony_id) }}"
                                        class="btn btn-danger btn-fill"
-                                       onclick="return confirm('Are you sure to delete this course?');">Delete</a>
+                                       onclick="return confirm('Are you sure to delete this testimony?');">Delete</a>
                                 </td>
 
                             </tr>
                         @endforeach
+
                     </table>
                 </div><!-- end of content -->
 

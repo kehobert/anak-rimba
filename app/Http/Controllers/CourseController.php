@@ -58,7 +58,7 @@ class CourseController extends Controller
 
         alert()->success('Page has been updated.');
 
-        return back();
+        return back()->with('Message', 'Course has been updated');
     }
 
     public function view()

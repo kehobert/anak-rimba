@@ -5,6 +5,12 @@
         <li><span class="icon fa-envelope"></span> sales@anakrimba.org</li>
         <li><span class="icon fa-map-marker"></span> Kebon Jeruk</li>
     </ul>
+    <h2>
+        <a href="#"><i class="fa fa-facebook-f"></i></a> &nbsp &nbsp
+        <a href="#"><i class="fa fa-twitter"></i></a> &nbsp &nbsp
+        <a href="#"><i class="fa fa-instagram"></i></a> &nbsp &nbsp
+        <a href="#"><i class="fa fa-github"></i></a>
+    </h2>
 </div>
 <div class="copyright">
     &copy; Copyright Anak Rimba 2009. All rights reserved

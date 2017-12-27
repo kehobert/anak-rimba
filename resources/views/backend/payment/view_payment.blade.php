@@ -7,7 +7,6 @@
         </div>
     @endif
 
-    {{$payment_list}}
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -44,7 +43,8 @@
                                     <td style="color:darkgreen">{{$status = "Confirmed" }}</td>
                                 @endif
                                 <td>
-
+                                    <button class="btn btn-danger btn-fill">Delete</button>
+                                    <button class="btn btn-info btn-fill">Confirm</button>
                                 </td>
                             </tr>
                         @endforeach

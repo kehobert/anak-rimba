@@ -28,6 +28,6 @@ class RegisterCourse extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('help@mion.com')->view('mails.register_mail');
     }
 }

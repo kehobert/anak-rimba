@@ -35,6 +35,11 @@
                         <i class="fa fa-bell"></i><p>Payment Confirmation</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('view_testimony') }}">
+                        <i class="fa fa-pencil-square-o"></i><p>Testimony</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

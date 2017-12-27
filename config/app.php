@@ -194,6 +194,7 @@ return [
     */
 
     'aliases' => [
+        Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -227,7 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
     ],
 

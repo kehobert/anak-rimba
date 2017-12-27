@@ -28,10 +28,10 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST'),
     'mailgun' => [
-        'domain' => 'your-mailgun-domain',
-        'secret' => 'your-mailgun-key',
+        'domain' => 'postmaster@mion.co.id',
+        'secret' => '8e47360c3c42aa7edccdb170ef18c88a',
     ],
 
     /*
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'kevinhobert29@gmail.com', 'name' => 'Kevin Hobert'],
 
     /*
     |--------------------------------------------------------------------------
@@ -111,5 +111,13 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
+    ],
 
 ];

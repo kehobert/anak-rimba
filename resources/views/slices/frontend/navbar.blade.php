@@ -3,7 +3,7 @@
     <nav class="left">
         <a href="#menu"><span>Menu</span></a>
     </nav>
-    <a href="index.html" class="logo"><img src="public/images/LogoAnakRimba.png" alt="Anak Rimba"></a>
+    <a href="{{url('')}}" class="logo"><img src="{{ URL::asset('public/images/LogoAnakRimba.png') }}" alt="Anak Rimba"></a>
     <nav class="right">
         <a href="{{ url('course') }}" class="button alt">Register Class</a>
     </nav>
@@ -21,3 +21,16 @@
         <li><a href="#" class="button fit">Login</a></li>
     </ul>
 </nav>
+
+<button class="btn big contact-us-button"><i class="fa fa-envelope"></i> Contact Us!</button>
+
+<style>
+    .contact-us-button{
+        position: fixed;
+        bottom: 0px;
+        right: 50px;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+</style>
+

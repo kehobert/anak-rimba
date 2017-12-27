@@ -30,6 +30,17 @@ Route::post('update_course/{course_id}', 'CourseController@update');
 Route::get('view_course', 'CourseController@view');
 Route::get('delete_course/{course_id}', 'CourseController@destroy');
 
+/* Testimony Route */
+Route::get('add_testimony', 'TestimonyController@add');
+Route::post('store_testimony', 'TestimonyController@store');
+
+Route::get('edit_testimony/{testimony_id}', 'TestimonyController@edit');
+Route::post('update_testimony/{testimony_id}', 'TestimonyController@update');
+
+Route::get('view_testimony', 'TestimonyController@view');
+Route::get('delete_testimony/{testimony_id}', 'TestimonyController@destroy');
+
+
 /* Payment Route */
 Route::get('view_payment', 'PaymentController@view');
 /* Registration Route */
@@ -52,7 +63,7 @@ Route::resource('/backend/registration', 'RegistrationController');
 Route::resource('/backend/payment', 'PaymentController');
 Route::resource('/page', 'PageController');
 
-
+/*
 function is_active_sorter($key, $direction = 'ASC')
 {
     if (request('sortby') == $key && request('sortdir') == $direction) {
@@ -61,5 +72,5 @@ function is_active_sorter($key, $direction = 'ASC')
 
     return false;
 }
-
+*/
 

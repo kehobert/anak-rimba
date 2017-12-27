@@ -8,6 +8,13 @@
                     <h4 class="title">Edit Course - {{$oCourse[0]->course_name}}</h4>
                 </div>
                 <div class="content">
+
+                    @if(Session::has('Message'))
+                        <div class="alert alert-danger">
+                            {{Session::get('Message')}}
+                        </div>
+                    @endif
+
                     <form method="post" action="{{url('update_course',$oCourse[0]->course_id)}}">
                         <div class="row">
                             <div class="col-md-12">
