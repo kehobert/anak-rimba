@@ -50,11 +50,15 @@
             </div>
 
         </div>
-        <br/><br/>
+        <br/>
+
+        <div class="g-recaptcha" data-sitekey="6Ld7cT4UAAAAAGaxOqh1M4rZfX6cFxk0Y_6P0OJI"></div><br/>
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="submit" value="Confirm Payment" class="button">
     </form>
 
 </div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
 @stop

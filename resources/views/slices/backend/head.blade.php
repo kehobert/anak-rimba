@@ -40,6 +40,11 @@
                         <i class="fa fa-pencil-square-o"></i><p>Testimony</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('view_news') }}">
+                        <i class="fa fa-newspaper-o"></i><p>News</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

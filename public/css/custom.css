@@ -1,0 +1,13 @@
+.custom-success-box{
+    margin-bottom:20px;
+    background: green;
+    color:white;
+    padding:10px;
+}
+
+.custom-error-box{
+    margin-bottom:20px;
+    background: darkred;
+    color:white;
+    padding:10px;
+}

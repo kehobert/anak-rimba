@@ -9,22 +9,13 @@
     </nav>
 </header>
 
-<!-- Menu -->
-<nav id="menu">
-    <ul class="links">
-        <li><a href="{{url('')}}">Home</a></li>
-        <li><a href="{{url('course')}}">Courses</a></li>
-        <li><a href="{{url('payment')}}">Payment Confirmation</a></li>
-        <li><a href="{{url('about_us')}}">About Anak Rimba</a></li>
-    </ul>
-    <ul class="actions vertical">
-        <li><a href="#" class="button fit">Login</a></li>
-    </ul>
-</nav>
-
-<button class="btn big contact-us-button"><i class="fa fa-envelope"></i> Contact Us!</button>
-
 <style>
+    .service-tag-navbar{
+        text-align: center;
+        font-weight: 700;
+        color:#FFFFFF;
+    }
+
     .contact-us-button{
         position: fixed;
         bottom: 0px;
@@ -34,3 +25,27 @@
 
 </style>
 
+<!-- Menu -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{{url('')}}">Home</a></li>
+        <li><a href="{{url('course')}}">Training</a></li>
+        <li><a href="{{url('payment')}}">Payment Confirmation</a></li>
+        <li><a href="{{url('about_us')}}">About Anak Rimba</a></li>
+        <li><a href="{{url('news')}}">News</a></li>
+    </ul><br/>
+    <ul class="links">
+
+        <li><p class="service-tag-navbar">Services</p></li>
+        <li><a href="{{url('it_consulting_service')}}">IT Consultant</a></li>
+        <li><a href="{{url('mobile_application_development_service')}}">Mobile Application Development</a></li>
+        <li><a href="{{url('web_application_development_service')}}">Web Application Development</a></li>
+        <li><a href="{{url('penetration_testing_service')}}">Penetration Testing</a></li>
+        <li><a href="{{url('hardening_service')}}">Hardening</a></li>
+        <li><a href="{{url('digital_forensic_service')}}">Digital Investigation & Forensic</a></li>
+    </ul>
+</nav>
+
+<button type="submit" href="#" class="btn big contact-us-button" onclick="location.href='http://localhost/anak-rimba/contact_us'">
+    <i class="fa fa-envelope"></i> Contact Us!
+</button>

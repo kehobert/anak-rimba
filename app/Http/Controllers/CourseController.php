@@ -42,7 +42,7 @@ class CourseController extends Controller
 
         //alert()->success('Page has been added.');
 
-        return redirect()->action('CourseController@view')->with('Message', 'Course has been added');;
+        return redirect()->action('CourseController@view')->with('Message', 'Course has been added');
     }
 
     public function edit($course_id)
@@ -67,12 +67,8 @@ class CourseController extends Controller
         $sortBy = 'course_date_start';
         $sortDirection = 'ASC';
 
-        if (request('sortby') || request('sortdir')) {
-            $sortBy = request('sortby');
-            $sortDirection = request('sortdir');
-        }
+        $course =  DB::table('courses')->where('course_active', 1)->orderBy($sortBy, $sortDirection)->get();
 
-        $course = Course::orderBy($sortBy, $sortDirection)->paginate(6)->where('course_active', 1);
 
         return view('backend.course.view_course', compact('course'));
     }

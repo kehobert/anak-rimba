@@ -17,6 +17,18 @@ Route::post('/confirm_payment', 'FrontendController@submit_payment_confirmation'
 Route::get('/thank_you', 'FrontendController@redirect_payment_confirmation'); //Redirect to this page
 /* Additional Pages */
 Route::get('/about_us', 'FrontendController@about_us');
+Route::get('/news', 'FrontendController@news_list');
+Route::get('/news_details/{news_id}', 'FrontendController@news_details');
+/*Service Page */
+Route::get('/it_consulting_service', 'FrontendController@it_consulting_service');
+Route::get('/mobile_application_development_service', 'FrontendController@mobile_application_development_service');
+Route::get('/web_application_development_service', 'FrontendController@web_application_development_service');
+Route::get('/penetration_testing_service', 'FrontendController@penetration_testing_service');
+Route::get('/hardening_service', 'FrontendController@hardening_service');
+Route::get('/digital_forensic_service', 'FrontendController@digital_forensic_service');
+/* Contact Page */
+Route::get('/contact_us', 'FrontendController@contact_form');
+Route::post('/send_customer_message', 'FrontendController@send_customer_message');
 
 /*------------------------------ Backend Route ---------------------------*/
 
@@ -39,6 +51,16 @@ Route::post('update_testimony/{testimony_id}', 'TestimonyController@update');
 
 Route::get('view_testimony', 'TestimonyController@view');
 Route::get('delete_testimony/{testimony_id}', 'TestimonyController@destroy');
+
+/*News Route */
+Route::get('add_news', 'NewsController@add');
+Route::post('store_news', 'NewsController@store');
+
+Route::get('edit_news/{news_id}', 'NewsController@edit');
+Route::post('update_news/{news_id}', 'NewsController@update');
+
+Route::get('view_news', 'NewsController@view');
+Route::get('delete_news/{news_id}', 'NewsController@destroy');
 
 
 /* Payment Route */

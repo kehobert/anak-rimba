@@ -6,7 +6,8 @@
 <script src="{{ URL::asset('public/backend/js/bootstrap-notify.js') }}"></script>
 <script src="{{ URL::asset('public/backend/js/light-bootstrap-dashboard.js?v=1.4.0') }}"></script>
 <script src="{{ URL::asset('public/backend/js/demo.js') }}"></script>
-
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 <!--
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
