@@ -64,7 +64,7 @@ class NewsController extends Controller
 
     public function update(newsFormRequest $request)
     {
-        news::where('news_id', $request->news_id)->update($request->except(['_token']));
+        News::where('news_id', $request->news_id)->update($request->except(['_token']));
 
         alert()->success('Page has been updated.');
 

@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>News Writer</label>
                                     <input type="text"
@@ -51,12 +51,21 @@
                                            value="">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>News Editor</label>
                                     <input type="text"
                                            class="form-control"
                                            name="news_editor"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>News Source (url)</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="news_source"
                                            value="">
                                 </div>
                             </div>

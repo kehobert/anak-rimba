@@ -7,7 +7,7 @@ Auth::routes();
 Route::get('/', 'FrontendController@index'); //Homepage
 
 Route::get('course', 'FrontendController@course');
-Route::get('/course_details/{course_id}', 'FrontendController@course_details');
+Route::get('/course_details/{course_id}', 'FrontendController@course_details')->where('course_id', '[0-9]+')->name('course_elaboration');
 Route::get('/registration/{registration_id}', 'FrontendController@registration');
 Route::post('/register_entry/{course_id}', 'FrontendController@register_entry');
 Route::get('/checkout/{registration_id}', 'FrontendController@checkout');

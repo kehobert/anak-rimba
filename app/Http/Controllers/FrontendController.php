@@ -263,6 +263,10 @@ class FrontendController extends Controller
     public function news_details($news_id){
         $oNews = DB::table('news')->where('news_id', $news_id)->select('news.*')->get();
 
+        if(!$oNews->count()){
+            //abort(404, 'News not found');
+        }
+
         return view('frontend.news_details', compact('oNews'));
     }
 
